@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Landing = () => {
   const refWolverine = useRef(null);
@@ -10,7 +11,7 @@ const Landing = () => {
     setTimeout(() => {
       setBtn(true);
       refWolverine.current.classList.remove("startingImg");
-    }, 1000);
+    }, 500);
   }, []);
 
   const setLeftImage = () => {
@@ -36,14 +37,18 @@ const Landing = () => {
         onMouseOut={clearImage}
         className="leftBox"
       >
-        <button className="btn-welcome">Inscription</button>
+        <Link className="btn-welcome" to="signup">
+          Inscription
+        </Link>
       </div>
       <div
         onMouseOver={setRightImage}
         onMouseOut={clearImage}
         className="rightBox"
       >
-        <button className="btn-welcome">Connection</button>
+        <Link className="btn-welcome" to="login">
+          Connection
+        </Link>
       </div>
     </>
   );
