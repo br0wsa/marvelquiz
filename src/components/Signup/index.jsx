@@ -25,20 +25,23 @@ export default function Signup(props) {
     const { email, password, pseudo } = loginData;
     firebase
       .signupUser(email, password)
-      .then((user) => {
-        console.log(user);
-        setLoginData({ ...data });
-        navigate("/");
+      .then((authUser) => {
+        return firebase.user(authUser.user.uid).set({
+          pseudo,
+          email,
+        });
       })
-      .catch((err) => {
-        setError(err);
+      .then(() => {
+        setLoginData({ ...data });
+        navigate("/welcome");
+      })
+      .catch((error) => {
+        setError(error);
         setLoginData({ ...data });
       });
   };
-
-  const errorMsg = error !== "" && <span>{error}</span>;
-
   const { pseudo, email, password, confirmPassword } = loginData;
+
   const btn =
     pseudo === "" ||
     email === "" ||
@@ -48,6 +51,9 @@ export default function Signup(props) {
     ) : (
       <button>Inscription</button>
     );
+
+  // gestion erreurs
+  const errorMsg = error !== "" && <span>{error.message}</span>;
 
   return (
     <div className="signUpLoginBox">
@@ -108,6 +114,7 @@ export default function Signup(props) {
                   Confirmer le mot de passe
                 </label>
               </div>
+
               {btn}
             </form>
             <div className="linkContainer">
