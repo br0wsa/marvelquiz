@@ -1,5 +1,6 @@
 window.env = {
-  "REACT_APP_MARVEL_API_KEY": "AIzaSyDo6eBkrdmyGNFM-IHxYhcKeNSbdX8jC7s",
+  "REACT_APP_MARVEL_API_KEY": "2c615480c934a2d4d437b15177b8cf11",
+  "REACT_APP_FIREBASE_API_KEY": "AIzaSyDo6eBkrdmyGNFM-IHxYhcKeNSbdX8jC7s",
   "REACT_APP_FIREBASE_AUTH_DOMAIN": "marvel-quiz-a7c5d.firebaseapp.com",
   "REACT_APP_FIREBASE_PROJECT_ID": "marvel-quiz-a7c5d",
   "REACT_APP_FIREBASE_STORAGE_BUCKET": "marvel-quiz-a7c5d.appspot.com",

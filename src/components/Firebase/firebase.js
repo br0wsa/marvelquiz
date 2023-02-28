@@ -6,7 +6,7 @@ import env from "react-dotenv";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: env.REACT_APP_MARVEL_API_KEY,
+  apiKey: env.REACT_APP_FIREBASE_API_KEY,
   authDomain: env.REACT_APP_FIREBASE_AUTH_DOMAIN,
   projectId: env.REACT_APP_FIREBASE_PROJECT_ID,
   storageBucket: env.REACT_APP_FIREBASE_STORAGE_BUCKET,

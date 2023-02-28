@@ -16,20 +16,18 @@
     "react-scripts": "5.0.1",
     "react-stepper-horizontal": "^1.0.11",
     "react-toastify": "^9.1.1",
-    "react-tooltip": "^5.7.4",
+    "react-tooltip": "^5.8.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-dotenv && react-scripts start",
     "build": "react-dotenv && react-scripts build",
     "serve": "react-dotenv && serve build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {
@@ -47,6 +45,7 @@
   "react-dotenv": {
     "whitelist": [
       "REACT_APP_MARVEL_API_KEY",
+      "REACT_APP_FIREBASE_API_KEY",
       "REACT_APP_FIREBASE_AUTH_DOMAIN",
       "REACT_APP_FIREBASE_PROJECT_ID",
       "REACT_APP_FIREBASE_STORAGE_BUCKET",

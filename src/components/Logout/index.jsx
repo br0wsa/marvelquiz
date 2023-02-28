@@ -1,22 +1,19 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
-
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css';
 import { FirebaseContext } from "../Firebase";
 
 const Logout = () => {
   const firebase = useContext(FirebaseContext);
   const [checked, setChecked] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (checked) {
       setTimeout(() => {
-        console.log("déconnexion");
-        navigate("/");
         firebase.signoutUser();
       }, 1000);
     }
-  }, [checked, firebase, navigate]);
+  }, [checked, firebase]);
 
   const handleChange = (e) => {
     setChecked(e.target.checked);
@@ -26,8 +23,13 @@ const Logout = () => {
     <div className="logoutContainer">
       <label className="switch">
         <input onChange={handleChange} type="checkbox" checked={checked} />
-        <span className="slider round"></span>
+        <span
+          data-tooltip-id="my-tooltip"
+          className="slider round"
+          data-tooltip-content="Déconnexion"
+        ></span>
       </label>
+      <Tooltip id="my-tooltip" place="left" effect="solid" />
     </div>
   );
 };
