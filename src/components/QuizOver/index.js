@@ -3,7 +3,7 @@ import { GiTrophyCup } from "react-icons/gi";
 import Loader from "../Loader";
 import Modal from "../Modal";
 import axios from "axios";
-import env from "react-dotenv";
+// import env from "react-dotenv";
 
 const QuizOver = React.forwardRef((props, ref) => {
   const {
@@ -15,8 +15,8 @@ const QuizOver = React.forwardRef((props, ref) => {
     loadLevelQuestions,
   } = props;
 
-  const API_PUBLIC_KEY = env.REACT_APP_MARVEL_API_KEY;
-  const hash = "c2cd9a1878e5f2dd29bf458d664f3700";
+  const API_PUBLIC_KEY = process.env.REACT_APP_MARVEL_API_KEY;
+  const API_MARVEL_HASH = process.env.REACT_APP_MARVEL_HASH;
 
   const [asked, setAsked] = useState([]);
   const [openModal, setOpenModal] = useState(false);
@@ -53,7 +53,7 @@ const QuizOver = React.forwardRef((props, ref) => {
     } else {
       axios
         .get(
-          `https://gateway.marvel.com/v1/public/characters/${id}?ts=1&apikey=${API_PUBLIC_KEY}&hash=${hash}`
+          `https://gateway.marvel.com/v1/public/characters/${id}?ts=1&apikey=${API_PUBLIC_KEY}&hash=${API_MARVEL_HASH}`
         )
         .then((response) => {
           setCharacterInfos(response.data);

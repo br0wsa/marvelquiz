@@ -2,6 +2,7 @@
 
 # api Keys
 .env
+.env.js
 
 # Firebase
 /.firebase
